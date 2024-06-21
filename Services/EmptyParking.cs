@@ -75,6 +75,7 @@ namespace ParkingSystem.Services
             }
         }
 
+        // Method to show Parking Lot that have been filled
         public void CountFilledLot() {
             var vehicleParked = new List<Vehicle>();
 
@@ -93,6 +94,23 @@ namespace ParkingSystem.Services
                 Console.WriteLine($"Total Vehicle Parked : {vehicleParked.Count}");
             } else {
                 Console.WriteLine("No Vehicle Parked");
+            }
+        }
+
+        // Method to show available lot
+        public void showEmptyLot() {
+            var emptyLot = new List<int>();
+
+            foreach (var slot in parkingSlots) {
+                if (slot.Vehicle == null) {
+                    emptyLot.Add(slot.AvailableNumSlot);
+                }
+                
+            }
+
+            Console.WriteLine($"Total Available Lot : {emptyLot.Count}");
+            foreach (var lot in emptyLot) {
+                Console.WriteLine(lot);
             }
         }
     }

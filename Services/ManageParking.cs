@@ -56,6 +56,11 @@ namespace ParkingSystem.Services
                         emptyParking.CountFilledLot();
                         break;
 
+                    // Generate Available Lot
+                    case "show_emp_lot":
+                        emptyParking.showEmptyLot();
+                        break;
+
                     // Exit Console/Program
                     case "exit":
                         return;
