@@ -64,7 +64,7 @@ namespace ParkingSystem.Services
 
                     // Generate vehicle based on vehicle type (car)
                     case "type_of":
-                        var choose = Console.ReadLine();
+                        string choose = sections[1];
                         if (choose == "Mobil") {
                             emptyParking.showType("Mobil");
                         } else {
@@ -74,13 +74,13 @@ namespace ParkingSystem.Services
 
                     // Generate lot used by vehicle color
                     case "color_of":
-                        var chooseColor = Console.ReadLine();
+                        string chooseColor = sections[1];
                         emptyParking.showLotByColor(chooseColor);
                         break;
 
                     // Handle vehicle left the parking lot
                     case "leave":
-                        var chooseLot = Console.ReadLine();
+                        var chooseLot = sections[1];
                         var converted = Convert.ToInt32(chooseLot);
                         emptyParking.Leave(converted);
                         break;
