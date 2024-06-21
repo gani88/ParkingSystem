@@ -51,7 +51,7 @@ namespace ParkingSystem.Services
             foreach (var slot in parkingSlots) {
                 if (slot.Vehicle != null) {
 
-                    // Split the Registration Number Format (Ex : [])
+                    // Split the Registration Number Format (Ex : ["H", "1234", "XCH"])
                     var parts = slot.Vehicle.PlateNumber.Split('-');
                     if (parts.Length > 1 && parts[1].Length > 0 && char.IsDigit(parts[1][0])) {
                         int num = parts[1][3] - '0';
@@ -73,7 +73,27 @@ namespace ParkingSystem.Services
                 Console.WriteLine($"Total vehicles : {vehicleEven.Count}");
                 Console.WriteLine(String.Join(", ", vehicleEven));
             }
-            
+        }
+
+        public void CountFilledLot() {
+            var vehicleParked = new List<Vehicle>();
+
+            foreach(var slot in parkingSlots) {
+                if (slot.Vehicle != null) {
+                    vehicleParked.Add(slot.Vehicle);
+                }
+            }
+
+            if (vehicleParked.Count > 0) {
+                Console.WriteLine("Vehicle Parked : ");
+                foreach (var vhc in vehicleParked) {
+                    Console.WriteLine($"{vhc.PlateNumber}");
+                }
+                
+                Console.WriteLine($"Total Vehicle Parked : {vehicleParked.Count}");
+            } else {
+                Console.WriteLine("No Vehicle Parked");
+            }
         }
     }
 }

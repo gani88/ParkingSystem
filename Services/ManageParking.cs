@@ -51,6 +51,11 @@ namespace ParkingSystem.Services
                         emptyParking.OddOrEven(true);
                         break;
 
+                    // Generate Lot that have been filled
+                    case "show_filled":
+                        emptyParking.CountFilledLot();
+                        break;
+
                     // Exit Console/Program
                     case "exit":
                         return;
