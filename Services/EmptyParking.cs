@@ -43,28 +43,37 @@ namespace ParkingSystem.Services
         }
 
         // Method to check the plate/registration number odd / even
-        public void OddOrEven(bool isEven) {
+        public void OddOrEven(bool isOdd) {
             
-            var vehicle = new List<String>();
+            var vehicleOdd = new List<String>();
+            var vehicleEven = new List<String>();
 
             foreach (var slot in parkingSlots) {
                 if (slot.Vehicle != null) {
+
+                    // Split the Registration Number Format (Ex : [])
                     var parts = slot.Vehicle.PlateNumber.Split('-');
                     if (parts.Length > 1 && parts[1].Length > 0 && char.IsDigit(parts[1][0])) {
-                        int num = parts[1][0] - '0';
+                        int num = parts[1][3] - '0';
 
-                        if (num % 2 == 0 == isEven) {
-                            vehicle.Add(slot.Vehicle.PlateNumber);
+                        if (num % 2 == 1) {
+                            vehicleOdd.Add(slot.Vehicle.PlateNumber);
+                        } else if (num % 2 == 0) {
+                            vehicleEven.Add(slot.Vehicle.PlateNumber);
+
                         }
                     }
                 }
             }
 
-            Console.WriteLine($"Total vehicles : {vehicle.Count}");
-            Console.WriteLine(String.Join(", ", vehicle));
+            if (isOdd == true) {
+                Console.WriteLine($"Total vehicles : {vehicleOdd.Count}");
+                Console.WriteLine(String.Join(", ", vehicleOdd));
+            } else {
+                Console.WriteLine($"Total vehicles : {vehicleEven.Count}");
+                Console.WriteLine(String.Join(", ", vehicleEven));
+            }
+            
         }
-
-        
-
     }
 }
