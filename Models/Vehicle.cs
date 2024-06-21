@@ -8,10 +8,10 @@ namespace ParkingSystem.Models
         public string PlateNumber { get; set; }
 
         // Constructor for this class
-        public Vehicle(string type, string vehicleColor, string plateNumebr) {
+        public Vehicle(string type, string vehicleColor, string plateNumber) {
             this.Type = type;
             this.VehicleColor = vehicleColor;
-            this.PlateNumber = plateNumebr;
+            this.PlateNumber = plateNumber;
         }
     }
 }
