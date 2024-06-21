@@ -1,6 +1,5 @@
 using ParkingSystem.Models;
-using System;
-using System.Collections.Generic;
+
 
 namespace ParkingSystem.Services 
 {
@@ -38,7 +37,7 @@ namespace ParkingSystem.Services
             foreach (var slot in parkingSlots) {
                 if (!slot.IsAvailable()) {
                     var vehicle = slot.Vehicle;
-                    Console.WriteLine($"{slot.AvailableNumSlot}\t{vehicle.Type}\t{vehicle.PlateNumber}\t{vehicle.VehicleColor}");
+                    Console.WriteLine($"{slot.AvailableNumSlot}\t\t{vehicle.Type}\t{vehicle.PlateNumber}\t{vehicle.VehicleColor}");
                 }
             }
         } 

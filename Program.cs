@@ -1,2 +1,14 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+using ParkingSystem.Services;
+
+namespace ParkingSystem
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var parkingSystem = new ManageParking();
+            parkingSystem.ParkInitiate();
+        }
+    }
+}

@@ -1,8 +1,8 @@
 using ParkingSystem.Models;
-using System;
 
-namespace ParkingSystem.Services {
-    public class ParkingSystem {
+namespace ParkingSystem.Services
+{
+    public class ManageParking {
 
         // Propery of this class
         private EmptyParking emptyParking;
@@ -22,9 +22,9 @@ namespace ParkingSystem.Services {
                         break;
 
                     case "park":
-                        var type = sections[1];
+                        var type = sections[3];
                         var vehicleColor = sections[2];
-                        var plateNumber = sections[3];
+                        var plateNumber = sections[1];
                         var vehicle = new Vehicle(type, vehicleColor, plateNumber);
 
                         if (emptyParking.Park(vehicle, out int allocatedSlot)) {
