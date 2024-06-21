@@ -78,6 +78,12 @@ namespace ParkingSystem.Services
                         emptyParking.showLotByColor(chooseColor);
                         break;
 
+                    // Handle vehicle left the parking lot
+                    case "leave":
+                        var chooseLot = Console.ReadLine();
+                        var converted = Convert.ToInt32(chooseLot);
+                        emptyParking.Leave(converted);
+                        break;
                     // Exit Console/Program
                     case "exit":
                         return;

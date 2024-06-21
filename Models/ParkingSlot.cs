@@ -15,5 +15,9 @@ namespace ParkingSystem.Models
         public bool IsAvailable() {
             return Vehicle == null;
         }
+
+        public void IsLeave() {
+            Vehicle = null;
+        }
     }
 }

@@ -154,5 +154,16 @@ namespace ParkingSystem.Services
                 }
             }
         }
+
+        // Method to handle when vehicle leave parking lot
+        public void Leave(int lotNum) {
+            var leftLot = parkingSlots.Find(slot => slot.AvailableNumSlot == lotNum);
+            if (leftLot != null) {
+                leftLot.IsLeave();
+                Console.WriteLine($"Slot number {lotNum} is free");
+            } else {
+                Console.WriteLine("Cannot find the vehicle");
+            }
+        }
     }
 }
