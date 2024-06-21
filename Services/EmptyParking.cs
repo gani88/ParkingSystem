@@ -30,7 +30,7 @@ namespace ParkingSystem.Services
             return false;
         }
 
-        // This method is to generate report
+        // Method to generate report
         public void Status() {
             Console.WriteLine("Slot\tNo.\tType\tRegistration No\tColour");
 
@@ -40,6 +40,31 @@ namespace ParkingSystem.Services
                     Console.WriteLine($"{slot.AvailableNumSlot}\t\t{vehicle.Type}\t{vehicle.PlateNumber}\t{vehicle.VehicleColor}");
                 }
             }
-        } 
+        }
+
+        // Method to check the plate/registration number odd / even
+        public void OddOrEven(bool isEven) {
+            
+            var vehicle = new List<String>();
+
+            foreach (var slot in parkingSlots) {
+                if (slot.Vehicle != null) {
+                    var parts = slot.Vehicle.PlateNumber.Split('-');
+                    if (parts.Length > 1 && parts[1].Length > 0 && char.IsDigit(parts[1][0])) {
+                        int num = parts[1][0] - '0';
+
+                        if (num % 2 == 0 == isEven) {
+                            vehicle.Add(slot.Vehicle.PlateNumber);
+                        }
+                    }
+                }
+            }
+
+            Console.WriteLine($"Total vehicles : {vehicle.Count}");
+            Console.WriteLine(String.Join(", ", vehicle));
+        }
+
+        
+
     }
 }
