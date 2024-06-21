@@ -40,6 +40,10 @@ namespace ParkingSystem.Services {
 
                     case "exit":
                         return;
+
+                    default:
+                        Console.WriteLine("There is no such command");
+                        break;
                 }
             }
         }
