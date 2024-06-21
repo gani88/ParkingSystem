@@ -140,7 +140,19 @@ namespace ParkingSystem.Services
                     Console.WriteLine(vhc.PlateNumber);
                 }
             }
+        }
 
+        // Method to show lot based on vehicle color
+        public void showLotByColor(string color) {
+            var colorVehicle = new List<ParkingSlot>();
+
+            foreach(var detail in parkingSlots) {
+                if (detail.Vehicle != null) {
+                    if (detail.Vehicle.VehicleColor == color) {
+                        Console.WriteLine(detail.AvailableNumSlot);
+                    }
+                }
+            }
         }
     }
 }

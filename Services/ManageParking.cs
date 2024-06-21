@@ -72,6 +72,12 @@ namespace ParkingSystem.Services
                         }
                         break;
 
+                    // Generate lot used by vehicle color
+                    case "color_of":
+                        var chooseColor = Console.ReadLine();
+                        emptyParking.showLotByColor(chooseColor);
+                        break;
+
                     // Exit Console/Program
                     case "exit":
                         return;
