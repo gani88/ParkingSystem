@@ -113,5 +113,34 @@ namespace ParkingSystem.Services
                 Console.WriteLine(lot);
             }
         }
+
+        // Method to show vehicle and lot based on type
+        public void showType(string vehicleType) {
+            var car = new List<Vehicle>();
+            var motor = new List<Vehicle>();
+
+            foreach(var slot in parkingSlots) {
+                if (slot.Vehicle != null) {
+                    if (slot.Vehicle.Type == "Mobil") {
+                        car.Add(slot.Vehicle);
+                    } else {
+                        motor.Add(slot.Vehicle);
+                    }
+                }
+            }
+
+            if (vehicleType == "Mobil") {
+                Console.WriteLine(car.Count);
+                foreach(var vhc in car) {
+                    Console.WriteLine(vhc.PlateNumber);
+                }
+            } else {
+                Console.WriteLine(motor.Count);
+                foreach(var vhc in motor) {
+                    Console.WriteLine(vhc.PlateNumber);
+                }
+            }
+
+        }
     }
 }

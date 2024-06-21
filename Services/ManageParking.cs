@@ -41,6 +41,16 @@ namespace ParkingSystem.Services
                         emptyParking.Status();
                         break;
 
+                    // Generate Lot that have been filled
+                    case "show_filled":
+                        emptyParking.CountFilledLot();
+                        break;
+
+                    // Generate Available Lot
+                    case "show_emp_lot":
+                        emptyParking.showEmptyLot();
+                        break;
+
                     // Generate vehicle with even registration number
                     case "registration_numbers_for_vehicles_with_event_plate": case "even_plate":
                         emptyParking.OddOrEven(false);
@@ -51,14 +61,15 @@ namespace ParkingSystem.Services
                         emptyParking.OddOrEven(true);
                         break;
 
-                    // Generate Lot that have been filled
-                    case "show_filled":
-                        emptyParking.CountFilledLot();
-                        break;
 
-                    // Generate Available Lot
-                    case "show_emp_lot":
-                        emptyParking.showEmptyLot();
+                    // Generate vehicle based on vehicle type (car)
+                    case "type_of":
+                        var choose = Console.ReadLine();
+                        if (choose == "Mobil") {
+                            emptyParking.showType("Mobil");
+                        } else {
+                            emptyParking.showType("Motor");
+                        }
                         break;
 
                     // Exit Console/Program
